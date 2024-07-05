@@ -21,7 +21,7 @@ function Home({ pictures, cartItems, setCartItems, addToCart, removeFromCart }) 
                 <div className="flex items-center">BEST CHOICE</div>
                 <div className="text-4xl flex items-center"><IoRemoveOutline /></div>
             </div>
-            <div className="actionCall w-[50%] text-6xl text-white font-bold mb-5">
+            <div className="actionCall md:w-[50%] text-4xl md:text-6xl text-white font-bold mb-5">
                 Discover, collect, and sell extraordinary NFTs
             </div>
             <div className="text-[#8E8E8E] font-normal text-xl mb-6">Explore on the world's best & largest NFT marketplace</div>
