@@ -8,35 +8,43 @@ function CartPage({ cartItems, removePurchasedPictures }) {
 
   const handlePay = () => {
     removePurchasedPictures(cartItems);
-    navigate('/');
+    navigate('/', { replace: true }); // Navigate back to home page
   };
 
-  // Calculate total price only if cartItems is defined and not empty
-  const totalPrice = cartItems && cartItems.length > 0
-    ? cartItems.reduce((total, item) => total + item.price, 0)
-    : 0;
+  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
 
   return (
     <div className="max-w-md mx-auto mt-8">
       <h2 className="text-lg font-bold mb-2">Cart</h2>
-      {cartItems && cartItems.length > 0 ? (
-        <>
+      {cartItems.length > 0 ? (
+        <div className="bg-white shadow-md rounded-lg p-4">
           {cartItems.map((item) => (
-            <div key={item.id} className="flex justify-between mb-2">
-              <span>{item.title}</span>
-              <span>${item.price}</span>
+            <div key={item.id} className="flex justify-between items-center border-b border-gray-200 py-2">
+              <div>
+                <p className="font-semibold">{item.title}</p>
+                <p className="text-gray-600">${item.price}</p>
+              </div>
+              <button
+                className="text-red-500 hover:text-red-700"
+                onClick={() => removePurchasedPictures([item])}
+              >
+                Remove
+              </button>
             </div>
           ))}
-          <p className="font-bold mt-2">Total: ${totalPrice}</p>
+          <div className="flex justify-between mt-4">
+            <p className="font-semibold">Total:</p>
+            <p className="font-semibold">${totalPrice}</p>
+          </div>
           <button
             onClick={handlePay}
-            className="bg-green-500 text-white py-1 px-4 mt-2 rounded"
+            className="bg-green-500 text-white py-1 px-4 mt-4 rounded hover:bg-green-600 transition-colors duration-300"
           >
             Pay
           </button>
-        </>
+        </div>
       ) : (
-        <p>No items in cart.</p>
+        <p className="text-center">No items in cart.</p>
       )}
     </div>
   );

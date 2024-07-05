@@ -14,23 +14,25 @@ const initialPictures = [
 
 function App() {
   const [pictures, setPictures] = useState(initialPictures);
-  const [cartItems, setCartItems] = useState([]); // Ensure cartItems is initialized as an empty array
+  const [cartItems, setCartItems] = useState([]);
 
   const addPicture = (newPicture) => {
     setPictures([...pictures, newPicture]);
   };
 
   const removePurchasedPictures = (purchasedPictures) => {
+    setPictures(pictures.filter(item => !purchasedPictures.includes(item)));
     setCartItems(cartItems.filter(item => !purchasedPictures.includes(item)));
   };
 
   return (
     <Router>
-      <div className="p-4">
-        <nav className="mb-4">
-          <RouterLink to="/" className="mr-4">Home</RouterLink>
-          <RouterLink to="/upload" className="mr-4">Upload</RouterLink>
-          <RouterLink to="/cart" className="mr-4">Cart</RouterLink>
+      <div className="p-4 bg-[#121117]">
+        <nav className="mb-4 flex justify-start space-x-4 text-sm font-semibold">
+          <div className="Brand text-lg">JonChoice</div>
+          <RouterLink to="/" className="text-blue-500 hover:text-blue-700">Home</RouterLink>
+          <RouterLink to="/upload" className="text-blue-500 hover:text-blue-700">Upload</RouterLink>
+          <RouterLink to="/cart" className="text-blue-500 hover:text-blue-700">Cart</RouterLink>
         </nav>
         <Routes>
           <Route path="/" element={<Home pictures={pictures} cartItems={cartItems} setCartItems={setCartItems} />} />
