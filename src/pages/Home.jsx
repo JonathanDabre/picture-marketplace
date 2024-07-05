@@ -52,7 +52,7 @@ function Home({ pictures, cartItems, setCartItems, addToCart, removeFromCart }) 
                         <p className="text-lg mt-6 mb-4 text-white font-bold">{picture.title}</p>
                         <div className="author flex mb-6 space-x-4">
                             <div className="avatar">     
-                                <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://img.freepik.com/premium-vector/avatar-icon002_750950-52.jpg" alt="Bordered avatar"/>
+                                <img className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://img.freepik.com/premium-vector/avatar-icon002_750950-52.jpg" alt="Bordered avatar"/>
                             </div>
                             <div className="text-white flex items-center text-sm font-semibold">@Jon'sChoice</div>
                         </div>

@@ -7,8 +7,8 @@ import Upload from './pages/Upload';
 import CartPage from './pages/CartPage';
 
 const initialPictures = [
-  { id: 1, title: 'Rohit Champ', url: 'https://pbs.twimg.com/media/GRYDjsnaUAA6FuU?format=jpg&name=4096x4096', price: 10 },
-  { id: 2, title: 'Kohli Flag', url: 'https://pbs.twimg.com/media/GRkDKNTaUAAdCRz?format=jpg&name=large', price: 15 },
+  { id: 1, title: 'Rohit Champ', url: 'https://bsmedia.business-standard.com/_media/bs/img/article/2024-07/02/full/1719895811-0482.jpg?im=FeatureCrop,size=(826,465)', price: 10 },
+  { id: 2, title: 'Kohli Flag', url: 'https://www.cricbuzz.com/a/img/v1/980x654/i1/c509908/virat-kohli-signs-off-as-the-f.jpg', price: 15 },
   { id: 3, title: "Goated Duo", url: 'https://imageio.forbes.com/specials-images/imageserve/66832e10c50513644856ec37/Virat-Kohli-and-Rohit-Sharma-celebrate-India-s-victory-In-the-2024-T20-World-Cup/960x0.jpg?format=jpg&width=960', price: 15 },
   { id: 4, title: "Holy Trinity", url: 'https://images.hindustantimes.com/img/2024/07/05/550x309/ANI-20240629046-0_1720154375714_1720154399312.jpg', price: 15 },
   { id: 5, title: "Conquerers", url: 'https://www.icccricketschedule.com/wp-content/uploads/2024/06/Virat-Rohit.webp', price: 15 },
