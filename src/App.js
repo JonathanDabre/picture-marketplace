@@ -1,5 +1,6 @@
+// App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link as RouterLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
@@ -80,12 +81,39 @@ function App() {
         draggable
         pauseOnHover
       />
-      <div className=" py-4 bg-[#121117] text-sm font-bold">
+      <div className="py-4 bg-[#121117] text-sm font-bold">
         <nav className="px-10 mb-4 flex justify-start space-x-8">
           <div className="brand text-lg flex items-end text-white font-bold">JonChoice</div>
-          <RouterLink to="/" className=" text-white flex items-center">Home</RouterLink>
-          <RouterLink to="/upload" className=" text-white flex items-center">Upload</RouterLink>
-          <RouterLink to="/cart" className=" text-white flex items-center">Cart</RouterLink>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "text-white flex border-b-2 border-b-[#540A98] items-center"
+                : "text-white flex items-center"
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/upload"
+            className={({ isActive }) =>
+              isActive
+                ? "text-white flex border-b-2 border-b-[#540A98] items-center"
+                : "text-white flex items-center"
+            }
+          >
+            Upload
+          </NavLink>
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              isActive
+                ? "text-white flex border-b-2 border-b-[#540A98] items-center"
+                : "text-white flex items-center"
+            }
+          >
+            Cart
+          </NavLink>
         </nav>
         <Routes>
           <Route path="/" element={<Home pictures={pictures} cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} removeFromCart={removeFromCart} />} />

@@ -1,4 +1,5 @@
 // Upload.jsx
+import { FaTelegramPlane } from "react-icons/fa";
 
 import React, { useState } from 'react';
 
@@ -22,15 +23,15 @@ function Upload({ addPicture }) {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 h-[100vh]">
-      <h2 className="text-lg font-bold mb-2">Upload Picture</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-md bg-[#121117] mx-auto mt-8 h-[100vh]">
+      <h2 className="text-3xl text-white font-bold mb-4">Upload Picture</h2>
+      <form onSubmit={handleSubmit} className="space-y-5">
         <input
           type="text"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="border p-2 w-full"
+          className=" w-full placeholder-[#8E8E86] font-normal bg-[#191919] rounded-lg px-4 py-3 text-sm"
           required
         />
         <input
@@ -38,7 +39,7 @@ function Upload({ addPicture }) {
           placeholder="Image URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="border p-2 w-full"
+          className="placeholder-[#8E8E86] bg-[#191919] font-normal rounded-lg px-4 py-3 text-sm w-full"
           required
         />
         <input
@@ -46,14 +47,15 @@ function Upload({ addPicture }) {
           placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-          className="border p-2 w-full"
+          className="placeholder-[#8E8E86] font-normal bg-[#191919] rounded-lg px-4 py-3 text-sm w-full"
           required
         />
         <button
           type="submit"
-          className="bg-green-500 text-white py-1 px-4 mt-2 rounded"
+          className="flex space-x-3 rounded-lg bg-gradient-to-br from-[#510EA1] to-[#4528DC] text-white py-2 px-5 mt-2 "
         >
-          Upload
+          <div className="">Upload</div>
+          <div className="icon text-xl"><FaTelegramPlane /></div>
         </button>
       </form>
     </div>

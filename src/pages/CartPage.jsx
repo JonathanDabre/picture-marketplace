@@ -14,10 +14,10 @@ function CartPage({ cartItems, removePurchasedPictures }) {
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
 
   return (
-    <div className="max-w-md mx-auto mt-8">
-      <h2 className="text-lg font-bold mb-2">Cart</h2>
+    <div className="h-[100vh] text-white max-w-md mx-auto mt-8">
+      <h2 className="text-3xl font-bold mb-4">Cart</h2>
       {cartItems.length > 0 ? (
-        <div className="bg-white shadow-md rounded-lg p-4">
+        <div className="bg-[#16151A] shadow-md rounded-lg p-5">
           {cartItems.map((item) => (
             <div key={item.id} className="flex justify-between items-center border-b border-gray-200 py-2">
               <div>
@@ -38,13 +38,13 @@ function CartPage({ cartItems, removePurchasedPictures }) {
           </div>
           <button
             onClick={handlePay}
-            className="bg-green-500 text-white py-1 px-4 mt-4 rounded hover:bg-green-600 transition-colors duration-300"
+            className="bg-gradient-to-br from-[#510EA1] to-[#4528DC] text-white py-2  px-5 mt-4 rounded hover:bg-green-600 transition-colors duration-300"
           >
             Pay
           </button>
         </div>
       ) : (
-        <p className="text-center">No items in cart.</p>
+        <p className="text-start text-[#8E8E8E]">No items in cart.</p>
       )}
     </div>
   );
