@@ -14,7 +14,7 @@ function CartPage({ cartItems, removePurchasedPictures }) {
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
 
   return (
-    <div className="h-[100vh] text-white max-w-md mx-auto mt-8">
+    <div className="h-[100vh] px-10 md:px-0 mx-auto text-white max-w-md mt-8">
       <h2 className="text-3xl font-bold mb-4">Cart</h2>
       {cartItems.length > 0 ? (
         <div className="bg-[#16151A] shadow-md rounded-lg p-5">

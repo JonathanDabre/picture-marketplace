@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Picture from '../components/Picture';
+import Credits from "../components/Credits";
 
 function Home({ pictures, cartItems, setCartItems, addToCart, removeFromCart }) {
   const navigate = useNavigate();
@@ -106,6 +107,9 @@ function Home({ pictures, cartItems, setCartItems, addToCart, removeFromCart }) 
             </div>
           ))}
         </div>
+      </div>
+      <div className="">
+        <Credits/>
       </div>
     </div>
   );

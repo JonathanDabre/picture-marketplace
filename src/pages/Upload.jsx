@@ -23,7 +23,7 @@ function Upload({ addPicture }) {
   };
 
   return (
-    <div className="max-w-md bg-[#121117] mx-auto mt-8 h-[100vh]">
+    <div className="max-w-md bg-[#121117] px-10 md:px-0 mx-auto mt-8 h-[100vh]">
       <h2 className="text-3xl text-white font-bold mb-4">Upload Picture</h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <input
