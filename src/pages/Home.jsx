@@ -2,9 +2,18 @@
 
 import React from 'react';
 
-function Home({ pictures, setCartItems }) {
+function Home({ pictures, cartItems, setCartItems }) {
   const addToCart = (picture) => {
     setCartItems((prevCartItems) => [...prevCartItems, picture]);
+  };
+
+  const removeFromCart = (pictureId) => {
+    setCartItems((prevCartItems) => prevCartItems.filter(item => item.id !== pictureId));
+  };
+
+  // Check if a picture is already in cart
+  const isInCart = (pictureId) => {
+    return cartItems.some(item => item.id === pictureId);
   };
 
   return (
@@ -14,12 +23,21 @@ function Home({ pictures, setCartItems }) {
           <img src={picture.url} alt={picture.title} className="mb-2" />
           <p className="font-bold">{picture.title}</p>
           <p>${picture.price}</p>
-          <button
-            onClick={() => addToCart(picture)}
-            className="bg-blue-500 text-white py-1 px-4 mt-2 rounded"
-          >
-            Buy
-          </button>
+          {isInCart(picture.id) ? (
+            <button
+              onClick={() => removeFromCart(picture.id)}
+              className="bg-red-500 text-white py-1 px-4 mt-2 rounded"
+            >
+              Remove from Cart
+            </button>
+          ) : (
+            <button
+              onClick={() => addToCart(picture)}
+              className="bg-blue-500 text-white py-1 px-4 mt-2 rounded"
+            >
+              Add to Cart
+            </button>
+          )}
         </div>
       ))}
     </div>
