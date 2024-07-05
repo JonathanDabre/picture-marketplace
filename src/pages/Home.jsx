@@ -32,7 +32,7 @@ function Home({ pictures, cartItems, setCartItems, addToCart, removeFromCart }) 
                 </button>
                 <button className="flex space-x-3 px-5 py-3 rounded-full border-2">                
                     <div className="icon text-white text-lg"><PiNotePencilDuotone /></div>
-                    <div className="text-white">Explore</div>
+                    <div className="text-white">Create</div>
                 </button>
             </div>
         </div>
