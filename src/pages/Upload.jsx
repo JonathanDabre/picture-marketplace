@@ -30,7 +30,7 @@ function Upload({ addPicture }) {
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className=" w-full placeholder-[#8E8E86] font-normal bg-[#191919] rounded-lg px-4 py-3 text-sm"
+          className=" w-full placeholder-[#8E8E86] text-white font-normal bg-[#191919] rounded-lg px-4 py-3 text-sm"
           required
         />
         <input
@@ -38,7 +38,7 @@ function Upload({ addPicture }) {
           placeholder="Image URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="placeholder-[#8E8E86] bg-[#191919] font-normal rounded-lg px-4 py-3 text-sm w-full"
+          className="placeholder-[#8E8E86] text-white bg-[#191919] font-normal rounded-lg px-4 py-3 text-sm w-full"
           required
         />
         <input
@@ -46,7 +46,7 @@ function Upload({ addPicture }) {
           placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-          className="placeholder-[#8E8E86] font-normal bg-[#191919] rounded-lg px-4 py-3 text-sm w-full"
+          className="placeholder-[#8E8E86] font-normal text-white bg-[#191919] rounded-lg px-4 py-3 text-sm w-full"
           required
         />
         <button
