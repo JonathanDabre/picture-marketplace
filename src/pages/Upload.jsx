@@ -1,4 +1,3 @@
-// Upload.jsx
 import { FaTelegramPlane } from "react-icons/fa";
 
 import React, { useState } from 'react';

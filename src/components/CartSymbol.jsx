@@ -1,4 +1,3 @@
-// components/CartSymbol.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineShoppingCart } from "react-icons/md";

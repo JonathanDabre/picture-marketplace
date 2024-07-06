@@ -22,7 +22,6 @@ function Home({ pictures, cartItems, setCartItems, addToCart, removeFromCart }) 
     auctionsRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Function to handle "Create" button click
   const handleCreateClick = () => {
     navigate('/upload');
   };
