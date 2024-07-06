@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Picture from '../components/Picture';
 import Credits from "../components/Credits";
 import Banner from "../components/Banner";
+import CartSymbol from "../components/CartSymbol";
 
 function Home({ pictures, cartItems, setCartItems, addToCart, removeFromCart }) {
   const navigate = useNavigate();
@@ -77,6 +78,9 @@ function Home({ pictures, cartItems, setCartItems, addToCart, removeFromCart }) 
             </div>
           ))}
         </div>
+      </div>
+      <div className="">
+        <CartSymbol/>
       </div>
       <div className="">
         <Credits/>
