@@ -1,4 +1,5 @@
-import { FaTelegramPlane } from "react-icons/fa";
+import { IoPaperPlaneOutline } from "react-icons/io5";
+
 
 import React, { useState } from 'react';
 
@@ -54,7 +55,7 @@ function Upload({ addPicture }) {
           className="flex space-x-3 rounded-lg bg-gradient-to-br from-[#510EA1] to-[#4528DC] text-white py-2 px-5 mt-2 "
         >
           <div className="">Upload</div>
-          <div className="icon text-xl"><FaTelegramPlane /></div>
+          <div className="icon text-xl"><IoPaperPlaneOutline/></div>
         </button>
       </form>
     </div>
