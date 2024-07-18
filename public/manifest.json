@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CricMarket",
+  "name": "An NFT Marketplace for Cricket Fans",
   "icons": [
     {
       "src": "favicon.ico",
