@@ -9,7 +9,7 @@ import Credits from "../components/Credits";
 import Banner from "../components/Banner";
 import CartSymbol from "../components/CartSymbol";
 
-function Home({ pictures, cartItems, setCartItems, addToCart, removeFromCart }) {
+function Home({ user, pictures, cartItems, setCartItems, addToCart, removeFromCart }) {
   const navigate = useNavigate();
   const auctionsRef = useRef(null); // Create a ref for the Auctions section
 
@@ -28,7 +28,7 @@ function Home({ pictures, cartItems, setCartItems, addToCart, removeFromCart }) 
 
   return (
     <div className="">
-      <Banner handleCreateClick={handleCreateClick} handleExploreClick={handleExploreClick}/>
+      <Banner user={user} handleCreateClick={handleCreateClick} handleExploreClick={handleExploreClick}/>
       <div className="bg-[#09080D] py-20" ref={auctionsRef}> {/* Attach the ref here */}
         <div className="company px-10 text-lg flex text-[#540A98] mb-3">
           <div className="flex items-center">Auctions</div>
