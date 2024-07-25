@@ -1,16 +1,17 @@
 import React from 'react';
-import { GoogleLogout } from 'react-google-login';
-
-const clientId = "154745809431-6e76of8v1kcrldc79i9bsruhrtpqj7lr.apps.googleusercontent.com";
+import { googleLogout } from '@react-oauth/google';
 
 const Logout = ({ onLogoutSuccess }) => {
+  const handleLogout = () => {
+    googleLogout();
+    if (onLogoutSuccess) onLogoutSuccess();
+  };
+
   return (
     <div id="signoutButton">
-      <GoogleLogout
-        clientId={clientId}
-        buttonText="Logout"
-        onLogoutSuccess={onLogoutSuccess}
-      />
+      <button onClick={handleLogout} className="bg-red-500 text-white py-2 px-4 rounded">
+        Logout
+      </button>
     </div>
   );
 };

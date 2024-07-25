@@ -1,20 +1,22 @@
 import React from 'react';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 
 const clientId = "154745809431-6e76of8v1kcrldc79i9bsruhrtpqj7lr.apps.googleusercontent.com";
 
 const Login = ({ onSuccess, onFailure }) => {
   return (
-    <div id="signInButton">
-      <GoogleLogin
-        clientId={clientId}
-        buttonText='Login'
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}
-        isSignedIn={true}
-      />
-    </div>
+    <GoogleOAuthProvider clientId={clientId}>
+      <div id="signInButton">
+        <GoogleLogin
+          onSuccess={(response) => {
+            onSuccess(response);
+          }}
+          onFailure={(error) => {
+            onFailure(error);
+          }}
+        />
+      </div>
+    </GoogleOAuthProvider>
   );
 };
 

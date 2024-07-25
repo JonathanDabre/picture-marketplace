@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
 import Upload from './pages/Upload';
 import CartPage from './pages/CartPage';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import Login from './components/Login';
 import Logout from './components/Logout';
-import { gapi } from 'gapi-script';
 
 const clientId = "154745809431-6e76of8v1kcrldc79i9bsruhrtpqj7lr.apps.googleusercontent.com";
 const initialPictures = [
@@ -33,27 +33,11 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    function start() {
-      gapi.client.init({
-        clientId: clientId,
-        scope: ""
-      });
-    }
-    gapi.load('client:auth2', start);
-  }, []);
-
   const handleLoginSuccess = (res) => {
     setIsLoggedIn(true);
     setUser(res.profileObj.givenName);
     console.log("Login Success! Current User: ", res.profileObj);
   };
-
-  useEffect(() => {
-    if (user) {
-      console.log("Hello:", user);
-    }
-  }, [user]);
 
   const handleLogoutSuccess = () => {
     setIsLoggedIn(false);
@@ -102,70 +86,79 @@ function App() {
   };
 
   return (
-    <Router>
-      <ToastContainer
-        position="top-center"
-        autoClose={1000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        theme='dark'
-        draggable
-        pauseOnHover
-      />
-      <div className="py-4 bg-[#121117] text-sm font-bold">
-        <nav className="px-10 mb-4 flex justify-between ">
-          <div className="flex justify-start space-x-8">
-            <div className="brand text-lg flex items-end text-white font-bold">JonChoice</div>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-white flex border-b-2 border-b-[#540A98] items-center"
-                  : "text-white flex items-center"
-              }
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/upload"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-white flex border-b-2 border-b-[#540A98] items-center"
-                  : "text-white flex items-center"
-              }
-            >
-              Upload
-            </NavLink>
-            <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-white flex border-b-2 border-b-[#540A98] items-center"
-                  : "text-white flex items-center"
-              }
-            >
-              Cart
-            </NavLink>
-          </div>
-          <div className="">
-            {isLoggedIn ? (
-              <Logout onLogoutSuccess={handleLogoutSuccess} />
-            ) : (
-              <Login onSuccess={handleLoginSuccess} />
-            )}
-          </div>
-        </nav>
-        <Routes>
-          <Route path="/" element={<Home user={user} pictures={pictures} cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} removeFromCart={removeFromCart} />} />
-          <Route path="/upload" element={<Upload addPicture={addPicture} />} />
-          <Route path="/cart" element={<CartPage cartItems={cartItems} removePurchasedPictures={removePurchasedPictures} />} />
-        </Routes>
-      </div>
-    </Router>
+    <GoogleOAuthProvider clientId={clientId}>
+      <Router>
+        <ToastContainer
+          position="top-center"
+          autoClose={1000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          theme='dark'
+          draggable
+          pauseOnHover
+        />
+        <div className="py-4 bg-[#121117] text-sm font-bold">
+          <nav className="px-10 mb-4 flex justify-between ">
+            <div className="flex justify-start space-x-8">
+              <div className="brand text-lg flex items-end text-white font-bold">JonChoice</div>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-white flex border-b-2 border-b-[#540A98] items-center"
+                    : "text-white flex items-center"
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/upload"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-white flex border-b-2 border-b-[#540A98] items-center"
+                    : "text-white flex items-center"
+                }
+              >
+                Upload
+              </NavLink>
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-white flex border-b-2 border-b-[#540A98] items-center"
+                    : "text-white flex items-center"
+                }
+              >
+                Cart
+              </NavLink>
+            </div>
+            <div className="">
+              {isLoggedIn ? (
+                <Logout onLogoutSuccess={handleLogoutSuccess} />
+              ) : (
+                <Login onSuccess={handleLoginSuccess} />
+              )}
+            </div>
+          </nav>
+          <Routes>
+            <Route path="/" element={<Home user={user} pictures={pictures} cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} removeFromCart={removeFromCart} />} />
+            <Route path="/upload" element={<Upload addPicture={addPicture} />} />
+            <Route path="/cart" element={<CartPage cartItems={cartItems} removePurchasedPictures={removePurchasedPictures} />} />
+          </Routes>
+        </div>
+      </Router>
+    </GoogleOAuthProvider>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
